@@ -26,11 +26,11 @@ public class StateService {
     public State save(State state){
         return stateRepository.save(state);
     }
-    public State findFirstByName(String name){
-        return stateRepository.findFirstByName(name);
+    public String findFirstByName(String name){
+        return stateRepository.findFirstByName(name).getAbbreviation();
     }
-    public State findFirstByCode(String abbreviation){
-        return stateRepository.findFirstByAbbreviation(abbreviation);
+    public String findFirstByCode(String abbreviation){
+        return stateRepository.findFirstByAbbreviation(abbreviation).getName();
     }
 
 }

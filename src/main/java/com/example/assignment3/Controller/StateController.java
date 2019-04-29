@@ -25,13 +25,13 @@ public class StateController {
         return stateService.list();
     }
     @GetMapping("stateToCode")
-    public State stateToCode(@RequestParam String state){
+    public String stateToCode(@RequestParam String state){
         return stateService.findFirstByName(state);
             //http://localhost:8080/stateToCode?state=Alabama
     }
 
     @GetMapping("codeToState")
-    public State codeToState(@RequestParam String code){
+    public String codeToState(@RequestParam String code){
         return stateService.findFirstByCode(code);
 //        http://localhost:8080/codeToState?code=AL
 
