@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StateRepository extends CrudRepository<State , Long> {
 
+
+    State findFirstByName(String name);
+    State findFirstByAbbreviation(String abbreviation);
 }
