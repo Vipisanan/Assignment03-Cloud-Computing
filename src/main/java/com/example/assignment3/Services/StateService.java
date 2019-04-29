@@ -27,10 +27,22 @@ public class StateService {
         return stateRepository.save(state);
     }
     public String findFirstByName(String name){
+        State state = stateRepository.findFirstByName(name);
+        if (isEmpty(state))
+            return "not matching Abbreviation";
         return stateRepository.findFirstByName(name).getAbbreviation();
+
+
     }
     public String findFirstByCode(String abbreviation){
+        State state = stateRepository.findFirstByAbbreviation(abbreviation);
+        if (isEmpty(state))
+            return "not matching name";
         return stateRepository.findFirstByAbbreviation(abbreviation).getName();
+    }
+
+    public boolean isEmpty(State  state){
+        return state == null;
     }
 
 }
